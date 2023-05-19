@@ -65,6 +65,6 @@ class PizzasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def pizza_params
-      params.fetch(:pizza, {})
+      params.require(:pizza).permit(:name)
     end
 end

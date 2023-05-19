@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :pizzas
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   post 'toppings/new', to: 'toppings#create'
-  post 'pizza/new', to: 'pizzas#create'
+  post 'pizzas/new', to: 'pizzas#create'
 
   # Defines the root path route ("/")
   root "home#index"

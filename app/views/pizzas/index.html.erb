@@ -4,9 +4,8 @@
 
 <div id="pizzas">
   <% @pizzas.each do |pizza| %>
-    <%= render pizza %>
     <p>
-      <%= link_to "Show this pizza", pizza %>
+      <%= link_to "#{pizza.name}", pizza %>
     </p>
   <% end %>
 </div>
