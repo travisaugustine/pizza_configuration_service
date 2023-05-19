@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_19_161257) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_19_161416) do
+  create_table "pizza_toppings", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "pizza_id", null: false
+    t.bigint "topping_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pizza_id"], name: "index_pizza_toppings_on_pizza_id"
+    t.index ["topping_id"], name: "index_pizza_toppings_on_topping_id"
+  end
+
   create_table "pizzas", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -21,4 +30,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_19_161257) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "pizza_toppings", "pizzas"
+  add_foreign_key "pizza_toppings", "toppings"
 end
