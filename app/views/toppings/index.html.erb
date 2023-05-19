@@ -4,9 +4,8 @@
 
 <div id="toppings">
   <% @toppings.each do |topping| %>
-    <%= render topping %>
     <p>
-      <%= link_to "Show this topping", topping %>
+      <%= link_to "#{topping.name}", topping %>
     </p>
   <% end %>
 </div>

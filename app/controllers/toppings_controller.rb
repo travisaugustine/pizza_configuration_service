@@ -22,7 +22,6 @@ class ToppingsController < ApplicationController
   # POST /toppings or /toppings.json
   def create
     @topping = Topping.new(topping_params)
-
     respond_to do |format|
       if @topping.save
         format.html { redirect_to topping_url(@topping), notice: "Topping was successfully created." }
@@ -65,6 +64,6 @@ class ToppingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def topping_params
-      params.fetch(:topping, {})
+      params.require(:topping).permit(:name)
     end
 end
