@@ -5,6 +5,8 @@ class ToppingsControllerTest < ActionDispatch::IntegrationTest
     @topping = toppings(:one)
   end
 
+  topping_name = 'pepperoni'  
+
   test "should get index" do
     get toppings_url
     assert_response :success
@@ -17,7 +19,7 @@ class ToppingsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create topping" do
     assert_difference("Topping.count") do
-      post toppings_url, params: { topping: {  } }
+      post toppings_url, params: { topping: { name: topping_name } }
     end
 
     assert_redirected_to topping_url(Topping.last)
@@ -34,7 +36,7 @@ class ToppingsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update topping" do
-    patch topping_url(@topping), params: { topping: {  } }
+    patch topping_url(@topping), params: { topping: { name: 'name' } }
     assert_redirected_to topping_url(@topping)
   end
 

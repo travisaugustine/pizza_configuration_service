@@ -5,6 +5,8 @@ class PizzasControllerTest < ActionDispatch::IntegrationTest
     @pizza = pizzas(:one)
   end
 
+  pizza_name = 'cheese'
+
   test "should get index" do
     get pizzas_url
     assert_response :success
@@ -17,7 +19,7 @@ class PizzasControllerTest < ActionDispatch::IntegrationTest
 
   test "should create pizza" do
     assert_difference("Pizza.count") do
-      post pizzas_url, params: { pizza: {  } }
+      post pizzas_url, params: { pizza: { name: pizza_name } }
     end
 
     assert_redirected_to pizza_url(Pizza.last)
@@ -34,7 +36,7 @@ class PizzasControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update pizza" do
-    patch pizza_url(@pizza), params: { pizza: {  } }
+    patch pizza_url(@pizza), params: { pizza: { name: pizza_name } }
     assert_redirected_to pizza_url(@pizza)
   end
 
